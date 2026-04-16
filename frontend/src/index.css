@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#00E676;--green-dark:#00C853;--green-glow:rgba(0,230,118,0.15);
+  --dark:#0B0F0B;--dark2:#131813;--dark3:#1A201A;
+  --text:#F1F8F1;--muted:#8BA88E;--border:rgba(0,230,118,0.12);
+  --white:#fff;
+  --danger: #FF3B30; --warning: #FFCC00;
+}
+
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:16px;}
+body{
+  background:var(--dark);color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.65;
+  overflow-x:hidden;font-weight:400;
+}
+
+/* noise overlay */
+.noise-overlay::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;
+}
+.noise-soft::before{opacity:0.3;}
+.noise-hard::before{opacity:0.4;}
+
+/* REUSABLE */
+.btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+  border: none;
+}
+.btn-primary{
+  background:var(--green);color:#000;border:none;
+  padding:clamp(14px,2vh,17px) clamp(28px,4vw,40px);border-radius:11px;
+  font-size:clamp(14px,2vw,16px);font-weight:700;
+  cursor:pointer;font-family:'Inter',sans-serif;
+  transition:all .3s cubic-bezier(0.4,0,0.2,1);letter-spacing:-0.01em;
+}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,230,118,0.35)}
+.btn-sec{
+  background:transparent;color:var(--text);
+  border:1px solid var(--border);
+  padding:clamp(14px,2vh,17px) clamp(28px,4vw,40px);border-radius:11px;
+  font-size:clamp(14px,2vw,16px);font-weight:600;
+  cursor:pointer;font-family:'Inter',sans-serif;transition:all .3s;
+}
+.btn-sec:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);background:rgba(0,230,118,0.05)}
+
+/* Scroll Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Additional Landing/Dashboard specific styles are mapped in components */
