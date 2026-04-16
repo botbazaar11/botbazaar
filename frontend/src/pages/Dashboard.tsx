@@ -1,8 +1,7 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
 export default function Dashboard() {
-  const navigate = useNavigate();
 
   return (
     <div className="dashboard-layout noise-overlay noise-soft">
